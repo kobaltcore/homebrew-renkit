@@ -7,7 +7,7 @@ cask "renkit" do
 
   url "https://github.com/kobaltcore/renkit/releases/download/v#{version}/renkit-macos-#{arch}.zip"
   name "renkit"
-  desc "A collection of tools to help you organise and use Ren'Py instances from the command line. Especially useful for headless servers."
+  desc "Collection of tools to help you use Ren'Py instances from the command-line"
   homepage "https://github.com/kobaltcore/renkit"
 
   binary "renutil"

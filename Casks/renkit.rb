@@ -1,16 +1,14 @@
 cask "renkit" do
   arch arm: "arm64", intel: "amd64"
 
-  version "2.4.0"
-  sha256 arm:   "fba006c76a369f0b2a291cf9b54268ffac18f2b92faed34d7570598f6fffad5e",
-         intel: "5771c5a72b3400d1ee12400c9dfb3df18b8f72fdc9ccc9df6bedf5290c65adc0"
+  version "3.0.3"
+  sha256 arm:   "9b41eb243d03f17b320fb267f5aabc550ffd30bd946c49a1078e8c19500af72e",
+         intel: "9e831d31ce0a2a1e67c76506778cbda0b43f2f881cd2c0db9dbc0fa915a76912"
 
-  url "https://github.com/kobaltcore/renkit/releases/download/v#{version}/renkit-macos-#{arch}.zip"
+  url "https://github.com/kobaltcore/renkit/releases/download/v#{version}/renkit-macos-#{arch}.tar.gz"
   name "renkit"
   desc "Collection of tools to help you use Ren'Py instances from the command-line"
   homepage "https://github.com/kobaltcore/renkit"
-
-  depends_on cask: "rcodesign"
 
   binary "renutil"
   binary "renotize"

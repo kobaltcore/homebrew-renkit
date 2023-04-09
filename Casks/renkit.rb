@@ -1,9 +1,9 @@
 cask "renkit" do
   arch arm: "arm64", intel: "amd64"
 
-  version "3.0.3"
-  sha256 arm:   "9b41eb243d03f17b320fb267f5aabc550ffd30bd946c49a1078e8c19500af72e",
-         intel: "9e831d31ce0a2a1e67c76506778cbda0b43f2f881cd2c0db9dbc0fa915a76912"
+  version "3.2.0"
+  sha256 arm:   "5112deb2d8f6dd51bd6da9cfbd51eec8454cac26a6621d8ac275e02455b4e6e3",
+         intel: "4eb4486894767cb5ae6fed4c57bd5aa3ac102c33d0457b03abcf67d4e06deacf"
 
   url "https://github.com/kobaltcore/renkit/releases/download/v#{version}/renkit-macos-#{arch}.tar.gz"
   name "renkit"

@@ -1,23 +1,23 @@
 class Renkit < Formula
-  version "4.0.0"
+  version "4.0.1"
   on_macos do
     on_arm do
-      url "https://github.com/kobaltcore/renkit/releases/download/v4.0.0/renkit-aarch64-apple-darwin.tar.xz"
-      sha256 "23d59534763b32594c9930c36df3cf73a20f0775cb8b703746a5caf8fc089266"
+      url "https://github.com/kobaltcore/renkit/releases/download/v4.0.1/renkit-aarch64-apple-darwin.tar.xz"
+      sha256 "10171b03a09dc47ae4ec93b93a5f65cea98347e5f07634aa16862d53802ad576"
     end
     on_intel do
-      url "https://github.com/kobaltcore/renkit/releases/download/v4.0.0/renkit-x86_64-apple-darwin.tar.xz"
-      sha256 "3ecbe402b46333e1e8d733363e732bc3a25c2ac5b87e62a58872702ea79dc907"
+      url "https://github.com/kobaltcore/renkit/releases/download/v4.0.1/renkit-x86_64-apple-darwin.tar.xz"
+      sha256 "72974e0fc17b3e0b6cbc6cc760eb1b5b10e07478994114643f698e94cab74581"
     end
   end
   on_linux do
     on_arm do
-      url "https://github.com/kobaltcore/renkit/releases/download/v4.0.0/renkit-aarch64-unknown-linux-gnu.tar.xz"
-      sha256 "258e7a0d1cc9e670fbf6d51bf65f4ab8f8ad9a257a5873f5efcc7daa202b29a4"
+      url "https://github.com/kobaltcore/renkit/releases/download/v4.0.1/renkit-aarch64-unknown-linux-gnu.tar.xz"
+      sha256 "a11589a34c7e7fb29190b7f5afd1ff108d950ccc7a9f94327ea9950da92435a8"
     end
     on_intel do
-      url "https://github.com/kobaltcore/renkit/releases/download/v4.0.0/renkit-x86_64-unknown-linux-gnu.tar.xz"
-      sha256 "37e99b2df2188b37eff9daa3e3b358b8798f72867c7a9cea3cc0bbbc0f3d08f6"
+      url "https://github.com/kobaltcore/renkit/releases/download/v4.0.1/renkit-x86_64-unknown-linux-gnu.tar.xz"
+      sha256 "bb8c17a6850260c48609b02d5239014e8425a2f1efd122ce0e546a5cc33dd847"
     end
   end
 

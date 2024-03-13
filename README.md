@@ -3,6 +3,5 @@
 ## How do I install this cask?
 
 ```bash
-brew tap kobaltcore/renkit
-brew install renkit --no-quarantine
+brew install kobaltcore/homebrew-renkit/renkit
 ```

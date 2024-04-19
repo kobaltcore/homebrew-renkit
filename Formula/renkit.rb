@@ -1,48 +1,42 @@
 class Renkit < Formula
-  version "4.1.0"
-  on_macos do
-    on_arm do
-      url "https://github.com/kobaltcore/renkit/releases/download/v4.1.0/renkit-aarch64-apple-darwin.tar.xz"
-      sha256 "7d7cf23e73c864bce1f9de266f194110fecd279f84d04e14951475d3801fb37b"
+  desc "Description"
+  homepage "https://github.com/kobaltcore/renkit"
+  version "4.2.0"
+  if OS.mac?
+    if Hardware::CPU.arm?
+      url "https://github.com/kobaltcore/renkit/releases/download/v4.2.0/renkit-aarch64-apple-darwin.tar.xz"
+      sha256 "376b11645ff3136a12458e8ab815571b5b558b6d88cdea8ee74ababc87738ca6"
     end
-    on_intel do
-      url "https://github.com/kobaltcore/renkit/releases/download/v4.1.0/renkit-x86_64-apple-darwin.tar.xz"
-      sha256 "74814ef64f847079a996f7ab0d5d90dc587189873ab52c72442eb54161198834"
+    if Hardware::CPU.intel?
+      url "https://github.com/kobaltcore/renkit/releases/download/v4.2.0/renkit-x86_64-apple-darwin.tar.xz"
+      sha256 "489b793db138320e054d51e3f8e3195baca01f3bd30d59ea3fdbbdd06c25132b"
     end
   end
-  on_linux do
-    on_arm do
-      url "https://github.com/kobaltcore/renkit/releases/download/v4.1.0/renkit-aarch64-unknown-linux-gnu.tar.xz"
-      sha256 "b950c61221d18382aeaf82b8e8f8df22f47c5a38112c363e8e790c612b878b4b"
+  if OS.linux?
+    if Hardware::CPU.arm?
+      url "https://github.com/kobaltcore/renkit/releases/download/v4.2.0/renkit-aarch64-unknown-linux-gnu.tar.xz"
+      sha256 "78d26e0e58f6bb52f72c700be4ce6ad784d96ba731d81cac1a1ed650b7cac87e"
     end
-    on_intel do
-      url "https://github.com/kobaltcore/renkit/releases/download/v4.1.0/renkit-x86_64-unknown-linux-gnu.tar.xz"
-      sha256 "34883558b4518bc64a66f601963133794d5cae5ee9e8c4cb108f4f5e970929d8"
+    if Hardware::CPU.intel?
+      url "https://github.com/kobaltcore/renkit/releases/download/v4.2.0/renkit-x86_64-unknown-linux-gnu.tar.xz"
+      sha256 "04f2a88c301bb33a4b4aa35714e96df31bc0f91b69a9bf0693c95ad8af4b774a"
     end
   end
   
   depends_on "openjdk@21"
 
   def install
-    on_macos do
-      on_arm do
-        bin.install "renconstruct", "renotize", "renutil"
-      end
+    if OS.mac? && Hardware::CPU.arm?
+      bin.install "renconstruct", "renotize", "renutil"
     end
-    on_macos do
-      on_intel do
-        bin.install "renconstruct", "renotize", "renutil"
-      end
+    if OS.mac? && Hardware::CPU.intel?
+      bin.install "renconstruct", "renotize", "renutil"
     end
-    on_linux do
-      on_arm do
-        bin.install "renconstruct", "renotize", "renutil"
-      end
+    if OS.linux? && Hardware::CPU.arm?
+      bin.install "renconstruct", "renotize", "renutil"
     end
-    on_linux do
-      on_intel do
-        bin.install "renconstruct", "renotize", "renutil"
-      end
+    if OS.linux? && Hardware::CPU.intel?
+      bin.install "renconstruct", "renotize", "renutil"
     end
 
     # Homebrew will automatically install these, so we don't need to do that
@@ -51,6 +45,6 @@ class Renkit < Formula
 
     # Install any leftover files in pkgshare; these are probably config or
     # sample files.
-    pkgshare.install *leftover_contents unless leftover_contents.empty?
+    pkgshare.install(*leftover_contents) unless leftover_contents.empty?
   end
 end

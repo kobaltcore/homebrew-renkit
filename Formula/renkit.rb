@@ -1,31 +1,36 @@
 class Renkit < Formula
-  desc "Description"
+  desc "A collection of tools to help you organise and use Ren'Py instances from the command line."
   homepage "https://github.com/kobaltcore/renkit"
-  version "4.4.0"
+  version "5.0.0"
   if OS.mac?
     if Hardware::CPU.arm?
-      url "https://github.com/kobaltcore/renkit/releases/download/v4.4.0/renkit-aarch64-apple-darwin.tar.xz"
-      sha256 "06e25c0d608075c306c5ce20bf95f1a1ca303611ee36621b9b89a4a23c210269"
+      url "https://github.com/kobaltcore/renkit/releases/download/v5.0.0/renkit-aarch64-apple-darwin.tar.xz"
+      sha256 "2f74441e85f8b85c324e771e8eb59c2d9310a0ef153d384b8c57c054d50598c4"
     end
     if Hardware::CPU.intel?
-      url "https://github.com/kobaltcore/renkit/releases/download/v4.4.0/renkit-x86_64-apple-darwin.tar.xz"
-      sha256 "38e8a36ec9989502fe2e6ceefab62efbb526bdb44255329ec443142fef12a7d7"
+      url "https://github.com/kobaltcore/renkit/releases/download/v5.0.0/renkit-x86_64-apple-darwin.tar.xz"
+      sha256 "29da68d94b4d0c35082964a3048bef7a12a8ea63aef966a196cfc30ca87259a2"
     end
   end
   if OS.linux?
     if Hardware::CPU.arm?
-      url "https://github.com/kobaltcore/renkit/releases/download/v4.4.0/renkit-aarch64-unknown-linux-gnu.tar.xz"
-      sha256 "75e1e23d4dc2eea196a7018a3f96fd46e409a650f92a12cbb58fb21c23599d69"
+      url "https://github.com/kobaltcore/renkit/releases/download/v5.0.0/renkit-aarch64-unknown-linux-gnu.tar.xz"
+      sha256 "7f63e568aaefc962560552ea9e2df0393dc21b0f1d10c4556df5f0a53eae1aa0"
     end
     if Hardware::CPU.intel?
-      url "https://github.com/kobaltcore/renkit/releases/download/v4.4.0/renkit-x86_64-unknown-linux-gnu.tar.xz"
-      sha256 "a526a4e49f5bbe3919d580b93f3cb013f45ab140db84ed2626dad18ed0caacd0"
+      url "https://github.com/kobaltcore/renkit/releases/download/v5.0.0/renkit-x86_64-unknown-linux-gnu.tar.xz"
+      sha256 "d209b97517cdb809d9d25b88f607d2ff27f913ada798c2cc2e910f0ef31b656d"
     end
   end
-  
   depends_on "openjdk@21"
 
-  BINARY_ALIASES = {"aarch64-apple-darwin": {}, "aarch64-unknown-linux-gnu": {}, "x86_64-apple-darwin": {}, "x86_64-pc-windows-gnu": {}, "x86_64-unknown-linux-gnu": {}}
+  BINARY_ALIASES = {
+    "aarch64-apple-darwin":      {},
+    "aarch64-unknown-linux-gnu": {},
+    "x86_64-apple-darwin":       {},
+    "x86_64-pc-windows-gnu":     {},
+    "x86_64-unknown-linux-gnu":  {},
+  }.freeze
 
   def target_triple
     cpu = Hardware::CPU.arm? ? "aarch64" : "x86_64"
@@ -43,18 +48,10 @@ class Renkit < Formula
   end
 
   def install
-    if OS.mac? && Hardware::CPU.arm?
-      bin.install "renconstruct", "renotize", "renutil"
-    end
-    if OS.mac? && Hardware::CPU.intel?
-      bin.install "renconstruct", "renotize", "renutil"
-    end
-    if OS.linux? && Hardware::CPU.arm?
-      bin.install "renconstruct", "renotize", "renutil"
-    end
-    if OS.linux? && Hardware::CPU.intel?
-      bin.install "renconstruct", "renotize", "renutil"
-    end
+    bin.install "renconstruct", "renotize", "renutil" if OS.mac? && Hardware::CPU.arm?
+    bin.install "renconstruct", "renotize", "renutil" if OS.mac? && Hardware::CPU.intel?
+    bin.install "renconstruct", "renotize", "renutil" if OS.linux? && Hardware::CPU.arm?
+    bin.install "renconstruct", "renotize", "renutil" if OS.linux? && Hardware::CPU.intel?
 
     install_binary_aliases!
 
